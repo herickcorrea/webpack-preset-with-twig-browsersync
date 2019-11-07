@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="pt-BR">
+<head>
+  	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="PRAGMA" content="NO-CACHE">
+  	<title>GM5 {% if title|length %} - {{ title }} {% endif %}</title>
+  	<link rel="shortcut icon" href="https://www.ancar.com.br/ancar-hol/favicon.ico" type="image/x-icon" />
+  	{# <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet"> #}
+</head>
+
+<body class="{{ body_class }}">
+	{% include "@theme/partials/header.twig" %}
+    {% block body %}
+    {% endblock %}
+    {% include "@theme/partials/footer.twig" %}
+</body>
+</html>
+
+{%
+	set translate = {
+		header:
+       	{
+       		titulo_link_index: 'Página inicial do projeto',
+       		alt_logo: 'ogo da empresa Ancar Ivanhoe',
+       		label_lista_menu: 'Menu Principal',
+       	},
+       	defaults:
+       	{
+       		btn_saiba_mais: 'Saiba Mais',
+       		btn_saiba_mais_title: 'Saiba Mais sobre:',
+       	},
+		home:
+       	{
+       		banner_home:
+            {
+                titulo_secao: 'Vídeo Introdução',
+                alt_img_legenda: 'Triângulos ilustrativos',
+                label_lista_frases: 'Frases do vídeo',
+            },
+            plataforma:
+            {
+            	titulo_secao: 'Introdução a Plataforma',
+            },
+            filosofia:
+            {
+            	titulo_secao: 'Nossa cultura e responsabilidades',
+            	label_lista_responsabilidades: 'Nossa responsabilidade',
+            },
+            nossos_shoppings:
+            {
+            	titulo_secao: 'Nossos Shopping',
+            	label_lista_galeria: 'Galeria de fotos dos shoppings',
+            },
+        },
+        footer:
+        {
+        	titulo_h4_endereco: 'Endereço',
+        	titulo_h4_nossasredes: 'Nossas redes sociais',
+        	titulo_h4_transparencia: 'Canal de Transparência',
+        	titulo_h4_shoppings: 'Conheça nossos shoppings',
+        	btn_comochegar_title: 'Traçar rota no Google Maps',
+        	btn_comochegar_label: 'Como Chegar',
+        	label_lista_social: 'Lista de links para redes sociais',
+        	btn_tel_title: 'Ligue para nosso SAC',
+        	btn_canal_transparencia_title: 'Conheça nosso Canal de Transparência',
+        	btn_canal_transparencia_label: 'Ir para o site',
+        	seletor_option_initial: 'Outros Shoppings da Ancar',
+        	copyright: '&copy; Ancar Ivanhoe - Todos os direitos reservados.',
+        	btn_topo: 'Voltar ao início da página',
+        },
+	}
+%}

@@ -1,0 +1,280 @@
+{% set title = "Quem Somos" %}
+{% set body_class = "quem-somos" %}
+
+{% extends "@theme/html/html.twig" %}
+
+{% block body %}
+
+<main id="internalPages" role="main">
+	
+	{%
+	    set plataforma = {
+	    	contentHTML: '
+	    		<h1 class="titSecoes">Quem <span>Somos</span></h1>
+				<div class="cols-2">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+					</p>
+				</div>
+	    	',
+	    	valores:
+	    	{
+	    		item1:
+	    		{
+	    			icone: 'icon-supermarket',
+	    			sinal: '',
+	    			numero: '28',
+	    			metrica: '',
+	    			label: 'Shoppings<br> território nacional',
+	    		},
+	    		item2:
+	    		{
+	    			icone: 'icon-selection',
+	    			sinal: '+',
+	    			numero: '1',
+	    			metrica: '<br>milhão',
+	    			label: 'ABL m²',
+	    		},
+	    		item3:
+	    		{
+	    			icone: 'icon-shopping-bag',
+	    			sinal: '+',
+	    			numero: '250',
+	    			metrica: '',
+	    			label: 'Megalojas',
+	    		},
+	    		item4:
+	    		{
+	    			icone: ' icon-tag',
+	    			sinal: '+',
+	    			numero: '5,7',
+	    			metrica: 'mil',
+	    			label: 'Lojas',
+	    		},
+	    		item5:
+	    		{
+	    			icone: 'icon-colaboradores',
+	    			sinal: '',
+	    			numero: '3',
+	    			metrica: 'mil',
+	    			label: 'Colaboradores',
+	    		},
+	    		item6:
+	    		{
+	    			icone: 'icon-visitantes',
+	    			sinal: '+',
+	    			numero: '30',
+	    			metrica: '<br>milhões',
+	    			label: 'Visitantes/mês',
+	    		},
+	    	},
+	    	url: './quem-somos'
+		}
+	%}
+
+	<section id="plataforma">
+		<h2 class="hide">{{ translate.home.plataforma.titulo_secao|t }}</h2>
+		<div class="container">
+			<div class="row">
+				<article class="col-xs-12">
+					<img src="../../images/vetor-ancar-title.png" height="45" width="57" class="imgOverTitle">
+					{{ plataforma.contentHTML }}
+					<ul class="flex numberCountUp">
+						
+						{% for item in plataforma.valores %}
+						
+							<li class="flex col-md-4 col-ls-2">
+								<div class="wrapFlex">
+									<i class="{{ item.icone }}"></i>
+									<p class="value">
+										<span class="sinal">{{ item.sinal }}</span>
+										<span class="num">{{ item.numero }}</span>
+										{{ item.metrica }}
+									</p>
+									<p class="label">
+										<strong>{{ item.label }}</strong>
+									</p>
+								</div>
+							</li>
+
+						{% endfor %}
+
+					</ul>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	{%
+	    set culturaResponsabilidade = {
+	    	container:
+	    	{
+	    		slide1:
+	    		{
+	    			titulo: 'Nossos <strong>Valores</strong>',
+	    			imagem: '../../images/nossa-cultura.png',
+	    			imagem_alt: 'Mulher apresentando o prêmio dado a Ancar, de melhor empresa para se trabalhar',
+	    			contentHTML: '
+	    				<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+						</p>
+						<p>
+							Nam ac tristique massa. Nullam feugiat quis erat eget imperdiet. Aenean lobortis eget sapien id venenatis. In eu lectus vitae justo volutpat euismod. Curabitur ultricies eleifend mi ut semper. Vivamus et arcu et massa feugiat pellentesque ac sit amet elit. Donec odio metus, efficitur iaculis dolor eget, facilisis ornare nisi. Donec id diam vel orci bibendum pulvinar nec a lectus.
+						</p>
+					',
+				},
+				slide2:
+	    		{
+	    			titulo: 'Nossos <strong>Pilares</strong>',
+	    			imagem: '../../images/nossa-cultura.png',
+	    			imagem_alt: 'Mulher apresentando o prêmio dado a Ancar, de melhor empresa para se trabalhar',
+	    			contentHTML: '
+	    				<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+						</p>
+					',
+				},
+				slide3:
+	    		{
+	    			titulo: 'Nossa <strong>Cultura</strong>',
+	    			imagem: '../../images/nossa-cultura.png',
+	    			imagem_alt: 'Mulher apresentando o prêmio dado a Ancar, de melhor empresa para se trabalhar',
+	    			contentHTML: '
+	    				<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+							Nam ac tristique massa. Nullam feugiat quis erat eget imperdiet. Aenean lobortis eget sapien id venenatis. In eu lectus vitae justo volutpat euismod. Curabitur ultricies eleifend mi ut semper. Vivamus et arcu et massa feugiat pellentesque ac sit amet elit. Donec odio metus, efficitur iaculis dolor eget, facilisis ornare nisi. Donec id diam vel orci bibendum pulvinar nec a lectus.
+						</p>
+					',
+				},
+	    	},
+		}
+	%}
+
+	<section id="filosofia">
+		<div class="grafismo">
+			<h2 class="hide">{{ translate.home.filosofia.titulo_secao|t }}</h2>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 nopadding">
+						<div class="swiper-container">
+							
+							<ul class="swiper-pagination col-xs-12"></ul>
+							
+							<ul class="swiper-wrapper" role="list" aria-label="{{ translate.home.filosofia.label_lista_responsabilidades|t }}">
+								
+								{% for slide in culturaResponsabilidade.container %}
+								
+									<li class="swiper-slide">
+										<h3 class="hide">{{ slide.titulo }}</h3>
+										<div class="content col-xs-12 col-md-6">
+											{{ slide.contentHTML }}
+										</div>
+										<div class="content col-xs-12 col-md-6">
+											<div class="imgLazyLoad transparent branco" data-img="{{ slide.imagem }}">
+												<img src="{{ slide.imagem }}" aria-hidden="true" alt="{{ slide.imagem_alt }}">
+											</div>
+										</div>
+									</li>
+
+								{% endfor %}
+								
+							</ul>
+
+						</div>
+
+						<div class="navigation-arrows outside">
+							<span class="prev-arrow"><i class="icon-left-open-1"></i></span>
+							<span class="next-arrow"><i class="icon-right-open-1"></i></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{%
+	    set conhecaShoppingHome = {
+	    	contentHTML: '
+	    		<h1 class="titSecoes">Conheça nossos</h1>
+				<h2 class="subTitSecoes">Prêmios</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+				</p>
+			',
+	    	galeria:
+	    	{
+	    		imagem1:
+	    		{
+	    			foto: 'https://odia.ig.com.br/_midias/jpg/2018/03/22/700x470/1_nova_america-6196540.jpg',
+	    			foto_alt: 'Texto alternativo da imagem',
+	    		},
+	    		imagem2:
+	    		{
+	    			foto: 'https://live.staticflickr.com/3368/3200917710_e260a806d2_b.jpg',
+	    			foto_alt: 'Texto alternativo da imagem',
+	    		},
+	    		imagem3:
+	    		{
+	    			foto: 'https://i.ytimg.com/vi/DJ7hcyMUUbc/maxresdefault.jpg',
+	    			foto_alt: 'Texto alternativo da imagem',
+	    		},
+	    	},
+	    	url: './nossos-shoppings'
+		}
+	%}
+
+	<section id="conhecaShoppingHome">
+		<h2 class="hide">{{ translate.home.nossos_shoppings.titulo_secao|t }}</h2>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-11 nopadding">
+					<article>
+						<div class="content col-xs-12 col-md-6">
+							<div class="wrapContent">
+								{{ conhecaShoppingHome.contentHTML|raw }}
+								<a href="{{ conhecaShoppingHome.url }}" class="btn wide" title="{{ translate.defaults.btn_saiba_mais_title|t }} {{ translate.home.nossos_shoppings.titulo_secao|t }}">
+									{{ translate.defaults.btn_saiba_mais|t }}
+								</a>
+							</div>
+						</div>
+						<div class="gallery">
+							
+							<div class="swiper-container">
+								<ul class="swiper-wrapper" role="list" aria-label="{{ translate.home.nossos_shoppings.label_lista_galeria|t }}">
+
+									{% for imagem in conhecaShoppingHome.galeria %}
+									
+										<li class="swiper-slide">
+											
+											<div class="imgLazyLoad" data-img="{{ imagem.foto }}">
+												<img src="../../images/fake-image-gallery-home.png" height="477" width="710" aria-hidden="true" alt="{{ imagem.foto_alt }}">
+											</div>
+											
+										</li>
+
+									{% endfor %}
+
+								</ul>
+
+								<div class="swiper-pagination"></div>
+							
+							</div>
+
+							<div class="navigation-arrows inside">
+								<span class="prev-arrow"><i class="icon-left-open-1"></i></span>
+								<span class="next-arrow"><i class="icon-right-open-1"></i></span>
+							</div>
+					
+						</div>
+						<div class="clear"></div>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+{% endblock %}

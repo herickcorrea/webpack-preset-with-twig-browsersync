@@ -1,0 +1,486 @@
+{% set title = "Home" %}
+{% set body_class = "home" %}
+
+{% extends "@theme/html/html.twig" %}
+
+{% block body %}
+
+<!-- BANNER HOME -->
+
+{#%
+    set banners = {
+    	desktop: "../../images/banner-01-desktop.jpg",
+    	tablet_x: "../../images/banner-01-tablet-x.jpg",
+    	mobile_x: "../../images/banner-01-mobile-x.jpg",
+    	tablet_y: "../../images/banner-01-tablet-y.jpg",
+    	mobile_y: "../../images/banner-01-mobile-y.jpg",
+    	url: "#",
+    	titulo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+       	textos: {
+        }
+    }
+%#}
+
+{%
+	set destaques = {
+	    video:
+	    {
+	    	mp4_desktop: "../../videos/ancar-ivanhoe-liderancas_1080p.mp4",
+	    	cover_desktop: "../../images/banner-01-desktop.jpg",
+	    },
+	    frames:
+	    {
+	    	frame1:
+	    	{
+		    	mobile_x: "../../images/frame-mobile-x-01.png",
+		    	mobile_y: "../../images/frame-mobile-y-01.png",
+	    	},
+	    	frame2:
+	    	{
+		    	mobile_x: "../../images/frame-mobile-x-02.jpg",
+		    	mobile_y: "../../images/frame-mobile-y-02.jpg",
+	    	},
+	    	frame3:
+	    	{
+		    	mobile_x: "../../images/frame-mobile-x-03.png",
+		    	mobile_y: "../../images/frame-mobile-y-03.png",
+	    	},
+	    },
+	    frase_fixa: "Lorem ipsum dolor sit amet,",
+        frases:
+       	{
+       		frase1: 'a sua liberdade <span class="pontoEscrita">!</span>',
+       		frase2: 'o seu apartamento maior <span class="pontoEscrita">!</span>',
+       		frase3: 'o seu quintal maior <span class="pontoEscrita">!</span>',
+       		frase4: 'a sua nova vida <span class="pontoEscrita">!</span>',
+       		frase5: 'o seu negócio <span class="pontoEscrita">!</span>',
+       		frase6: 'o melhor investimento <span class="pontoEscrita">!</span>',
+        }
+	}
+%}
+
+<div id="bannerHome">
+	<h2 class="hide">{{ translate.home.banner_home.titulo_secao|t }}</h2>
+	
+	<div id="loadVideo" data-video-desktop="{{ destaques.video.mp4_desktop }}" data-cover-desktop="{{ destaques.video.cover_desktop }}"></div>
+	
+	<div id="loadFrames" class="swiper-container">
+	
+		<ul role="list" aria-label="Lista de Destaques" class="swiper-wrapper">
+			
+			{% for frame in destaques.frames %}
+
+				<li class="swiper-slide">
+					<div class="responsiveImage imgLazyLoad" data-media-812="{{ frame.mobile_x }}" data-media-609="{{ frame.mobile_y }}"></div>
+				</li>
+
+			{% endfor %}
+
+		</ul>
+
+	</div>
+
+	<div class="gradiente">
+		<div class="legenda">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="escrevendo dynamicText">
+							<h3>{{ destaques.frase_fixa }}</h3>
+							<span id="escrita" class="efeitoEscrita"></span>
+							<ul class="hide" role="list" aria-label="{{ translate.home.banner_home.label_lista_frases|t }}">
+								{% for frase in destaques.frases %}
+									<li>{{ frase }}</li>
+								{% endfor %}
+							</ul>
+							<div class="clear"></div>
+						</div>
+
+						<div class="swiper-pagination"></div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<main role="main">
+	
+	{%
+	    set plataforma = {
+	    	contentHTML: '
+	    		<h1 class="titSecoes">Plataforma</h1>
+				<h2 class="subTitSecoes">Ancar Invanhoe</h2>
+				<div class="cols-2">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+					</p>
+				</div>
+	    	',
+	    	valores:
+	    	{
+	    		item1:
+	    		{
+	    			icone: 'icon-supermarket',
+	    			sinal: '',
+	    			numero: '28',
+	    			metrica: '',
+	    			label: 'Shoppings<br> território nacional',
+	    		},
+	    		item2:
+	    		{
+	    			icone: 'icon-selection',
+	    			sinal: '+',
+	    			numero: '1',
+	    			metrica: '<br>milhão',
+	    			label: 'ABL m²',
+	    		},
+	    		item3:
+	    		{
+	    			icone: 'icon-shopping-bag',
+	    			sinal: '+',
+	    			numero: '250',
+	    			metrica: '',
+	    			label: 'Megalojas',
+	    		},
+	    		item4:
+	    		{
+	    			icone: ' icon-tag',
+	    			sinal: '+',
+	    			numero: '5,7',
+	    			metrica: 'mil',
+	    			label: 'Lojas',
+	    		},
+	    		item5:
+	    		{
+	    			icone: 'icon-colaboradores',
+	    			sinal: '',
+	    			numero: '3',
+	    			metrica: 'mil',
+	    			label: 'Colaboradores',
+	    		},
+	    		item6:
+	    		{
+	    			icone: 'icon-visitantes',
+	    			sinal: '+',
+	    			numero: '30',
+	    			metrica: '<br>milhões',
+	    			label: 'Visitantes/mês',
+	    		},
+	    	},
+	    	url: './quem-somos'
+		}
+	%}
+
+	<section id="plataforma">
+		<h2 class="hide">{{ translate.home.plataforma.titulo_secao|t }}</h2>
+		<div class="container">
+			<div class="row">
+				<article class="col-xs-12">
+					<div class="">
+						{{ plataforma.contentHTML }}
+					</div>
+					<ul class="flex numberCountUp">
+						
+						{% for item in plataforma.valores %}
+						
+							<li class="flex col-md-4 col-ls-4">
+								<div class="wrapFlex">
+									<i class="{{ item.icone }}"></i>
+									<p class="value">
+										<span class="sinal">{{ item.sinal }}</span>
+										<span class="num">{{ item.numero }}</span>
+										{{ item.metrica }}
+									</p>
+									<p class="label">
+										<strong>{{ item.label }}</strong>
+									</p>
+								</div>
+							</li>
+
+						{% endfor %}
+
+					</ul>
+					<div class="footer">
+						<a href="{{ plataforma.url }}" class="btn wide" title="{{ translate.defaults.btn_saiba_mais|t }} ">
+							{{ translate.defaults.btn_saiba_mais|t }}
+						</a>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	{%
+	    set culturaResponsabilidade = {
+	    	container:
+	    	{
+	    		slide1:
+	    		{
+	    			titulo: 'Nossa <strong>Cultura</strong>',
+	    			imagem: '../../images/nossa-cultura.png',
+	    			imagem_alt: 'Mulher apresentando o prêmio dado a Ancar, de melhor empresa para se trabalhar',
+	    			contentHTML: '
+	    				<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+						</p>
+						<p>
+							Nam ac tristique massa. Nullam feugiat quis erat eget imperdiet. Aenean lobortis eget sapien id venenatis. In eu lectus vitae justo volutpat euismod. Curabitur ultricies eleifend mi ut semper. Vivamus et arcu et massa feugiat pellentesque ac sit amet elit. Donec odio metus, efficitur iaculis dolor eget, facilisis ornare nisi. Donec id diam vel orci bibendum pulvinar nec a lectus.
+						</p>
+					',
+				},
+				slide2:
+	    		{
+	    			titulo: 'Ancar <strong>Labs</strong>',
+	    			imagem: '../../images/nossa-cultura.png',
+	    			imagem_alt: 'Mulher apresentando o prêmio dado a Ancar, de melhor empresa para se trabalhar',
+	    			contentHTML: '
+	    				<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+						</p>
+					',
+				},
+				slide3:
+	    		{
+	    			titulo: 'Responsabilidade <strong>Social</strong>',
+	    			imagem: '../../images/nossa-cultura.png',
+	    			imagem_alt: 'Mulher apresentando o prêmio dado a Ancar, de melhor empresa para se trabalhar',
+	    			contentHTML: '
+	    				<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+							Nam ac tristique massa. Nullam feugiat quis erat eget imperdiet. Aenean lobortis eget sapien id venenatis. In eu lectus vitae justo volutpat euismod. Curabitur ultricies eleifend mi ut semper. Vivamus et arcu et massa feugiat pellentesque ac sit amet elit. Donec odio metus, efficitur iaculis dolor eget, facilisis ornare nisi. Donec id diam vel orci bibendum pulvinar nec a lectus.
+						</p>
+					',
+				},
+	    	},
+		}
+	%}
+
+	<section id="filosofia">
+		<div class="grafismo">
+			<h2 class="hide">{{ translate.home.filosofia.titulo_secao|t }}</h2>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 nopadding">
+						<div class="swiper-container">
+							
+							<ul class="swiper-pagination col-xs-12"></ul>
+							
+							<ul class="swiper-wrapper" role="list" aria-label="{{ translate.home.filosofia.label_lista_responsabilidades|t }}">
+								
+								{% for slide in culturaResponsabilidade.container %}
+								
+									<li class="swiper-slide">
+										<h3 class="hide">{{ slide.titulo }}</h3>
+										<div class="content col-xs-12 col-md-6">
+											{{ slide.contentHTML }}
+										</div>
+										<div class="content col-xs-12 col-md-6">
+											<div class="imgLazyLoad transparent branco" data-img="{{ slide.imagem }}">
+												<img src="{{ slide.imagem }}" aria-hidden="true" alt="{{ slide.imagem_alt }}">
+											</div>
+										</div>
+									</li>
+
+								{% endfor %}
+								
+							</ul>
+
+						</div>
+
+						<div class="navigation-arrows outside">
+							<span class="prev-arrow"><i class="icon-left-open-1"></i></span>
+							<span class="next-arrow"><i class="icon-right-open-1"></i></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{%
+	    set conhecaShoppingHome = {
+	    	contentHTML: '
+	    		<h1 class="titSecoes">Conheça nossos</h1>
+				<h2 class="subTitSecoes">Shoppings</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel pharetra erat. Duis elit est, fermentum a odio faucibus, dapibus facilisis dolor. Morbi ac molestie tortor, in pellentesque magna. Quisque augue metus, faucibus at ipsum vel, posuere dapibus erat. Vestibulum eu metus cursus, tincidunt enim at, condimentum purus. Aliquam erat volutpat. Quisque consequat augue a enim blandit gravida. Vivamus auctor quis massa ut porttitor. Etiam sit amet rhoncus sem.
+				</p>
+			',
+	    	galeria:
+	    	{
+	    		imagem1:
+	    		{
+	    			foto: 'https://odia.ig.com.br/_midias/jpg/2018/03/22/700x470/1_nova_america-6196540.jpg',
+	    			foto_alt: 'Texto alternativo da imagem',
+	    		},
+	    		imagem2:
+	    		{
+	    			foto: 'https://live.staticflickr.com/3368/3200917710_e260a806d2_b.jpg',
+	    			foto_alt: 'Texto alternativo da imagem',
+	    		},
+	    		imagem3:
+	    		{
+	    			foto: 'https://i.ytimg.com/vi/DJ7hcyMUUbc/maxresdefault.jpg',
+	    			foto_alt: 'Texto alternativo da imagem',
+	    		},
+	    	},
+	    	url: './nossos-shoppings'
+		}
+	%}
+
+	<section id="conhecaShoppingHome">
+		<h2 class="hide">{{ translate.home.nossos_shoppings.titulo_secao|t }}</h2>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-11 nopadding">
+					<article>
+						<div class="content col-xs-12 col-md-6">
+							<div class="wrapContent">
+								{{ conhecaShoppingHome.contentHTML|raw }}
+								<a href="{{ conhecaShoppingHome.url }}" class="btn wide" title="{{ translate.defaults.btn_saiba_mais_title|t }} {{ translate.home.nossos_shoppings.titulo_secao|t }}">
+									{{ translate.defaults.btn_saiba_mais|t }}
+								</a>
+							</div>
+						</div>
+						<div class="gallery">
+							
+							<div class="swiper-container">
+								<ul class="swiper-wrapper" role="list" aria-label="{{ translate.home.nossos_shoppings.label_lista_galeria|t }}">
+
+									{% for imagem in conhecaShoppingHome.galeria %}
+									
+										<li class="swiper-slide">
+											
+											<div class="imgLazyLoad" data-img="{{ imagem.foto }}">
+												<img src="../../images/fake-image-gallery-home.png" height="477" width="710" aria-hidden="true" alt="{{ imagem.foto_alt }}">
+											</div>
+											
+										</li>
+
+									{% endfor %}
+
+								</ul>
+
+								<div class="swiper-pagination"></div>
+							
+							</div>
+
+							<div class="navigation-arrows inside">
+								<span class="prev-arrow"><i class="icon-left-open-1"></i></span>
+								<span class="next-arrow"><i class="icon-right-open-1"></i></span>
+							</div>
+					
+						</div>
+						<div class="clear"></div>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{%
+	    set novidadesHome = {
+	    	contentHTML: '
+	    		<h1 class="titSecoes">Fique por dentro das</h1>
+				<h2 class="subTitSecoes">Novidades</h2>
+			',
+	    	novidades:
+	    	{
+	    		novidade1:
+	    		{
+	    			titulo: 'Bem Ancar',
+	    			descricao: 'A Ancar Ivanhoe dá mais um grande passo como agente transformador da realidade e lança o selo de responsabilidade social BEM ANCAR',
+	    			foto: '../../images/novidades-home-01.jpg',
+	    			foto_alt: 'Texto alternativo da imagem',
+	    			width: 603,
+	    			height:	669,
+	    			url: './novidades',		
+	    		},
+	    		novidade2:
+	    		{
+	    			titulo: 'Seu Melhor Lugar, Seu Melhor Começo!',
+	    			descricao: 'A partir do dia 08/04, a Ancar Ivanhoe ganha um Programa de Estágio para chamar de seu.',
+	    			foto: '../../images/novidades-home-02.jpg',
+	    			foto_alt: 'Texto alternativo da imagem',
+	    			width: 603,
+	    			height:	319,
+	    			url: './novidades',    			
+	    		},
+	    		novidade3:
+	    		{
+	    			titulo: 'Clube Desconteria',
+	    			descricao: 'Shoppings da Ancar Ivanhoe oferecem condições especiais para compras em aplicativo.',
+	    			foto: '../../images/novidades-home-03.jpg',
+	    			foto_alt: 'Texto alternativo da imagem',
+	    			width: 603,
+	    			height:	319,
+	    			url: './novidades',
+	    		},
+	    	},
+	    	url: './nossos-shoppings'
+		}
+	%}
+
+	<section id="novidadesHome">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 header">
+					{{ novidadesHome.contentHTML }}		
+				</div>
+				<div class="mosaico">
+					<ul>
+						
+						{% for item in novidadesHome.novidades %}
+
+							<li class="col-xs-12 col-xl-6">
+								<div class="imgLazyLoad" data-img="{{ item.foto }}">
+									<img src="{{ item.foto }}" width="{{ item.width }}" height="{{ item.height }}" aria-hidden="true" alt="{{ item.foto_alt }}">
+								</div>
+								<div class="gradiente">
+									<div class="legenda">
+										<h4>{{ item.titulo }}</h4>
+										<p>{{ item.descricao }}</p>
+									</div>
+									<a href="{{ item.url }}" title="{{ translate.defaults.btn_saiba_mais_title|t }} {{ item.titulo }}"><span class="hide">{{ translate.defaults.btn_saiba_mais|t }}</span></a>
+								</div>
+							</li>
+
+						{% endfor %}
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{%
+	    set instagram = {
+	    	titulo: '<i class="icon-instagram"></i> Instagram',
+	    	nickname: '@ancarivanhoe',
+	    	url: 'https://www.instagram.com/ancarivanhoe/',
+	    	api: 'http://dev-ancar-institucional.gm5.com.br/themes/institucional/instashow/api/index.php',
+	    }
+	%}
+
+	<section id="instagram" data-profile="{{ instagram.nickname }}" data-path="{{ instagram.api }}">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 header">
+					<h2 class="subTitSecoes">{{ instagram.titulo }}</h2>
+					<p><a href="{{ instagram.url }}" target="_blank">{{ instagram.nickname }}</a></p>
+				</div>
+				<div class="col-xs-12">
+					<div class="my-instashow"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+{% endblock %}

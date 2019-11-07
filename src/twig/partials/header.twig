@@ -1,0 +1,87 @@
+{%
+    set projeto = {
+        Nome: "Ancar Ivanhoe",
+    }
+%}
+<header id="mainHeader" role="banner">
+    
+    <div class="container">
+		<div class="row">
+			<div class="col-xs-4 col-xl-3 col-md-2 middle">
+				<h1>
+					<a href="./" title="{{ translate.header.titulo_link_index|t }}">
+						<span class="hide">{{ projeto.Nome }}</span>
+						<img src="../../images/logo-ancar-ivanhoe-branco.png" height="48" width="153" alt="{{ translate.header.alt_logo|t }}">
+					</a>
+				</h1>
+			</div>
+			<div class="col-xs-8 col-xl-9 col-md-10 barContent">
+				
+				<!-- MENU ACTIONS -->
+				
+				<div class="menuActions">
+					<span class="openMenu closed"><strong>Menu</strong> <i class="icon-menu"></i></span>
+					<!--<span class="closeMenu">Menu <i class="icon-cancel"></i></span>-->
+				</div>
+			
+			</div>
+		</div>
+	</div>
+
+	<!-- MAIN MENU -->
+	<nav id="navegacaoPrincipal" class="menu" role="navigation" aria-label="{{ translate.header.label_lista_menu|t }}">
+		<a href="#" class="btMenu" title="Menu">
+			<div class="wrapMenu">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-4">
+							<ul>
+								<li class="active-trail">
+									<a href="./" title="Home">Home</a>
+								</li>
+								<li class="">
+									<a href="./quem-somos.html" title="Quem Somos">Quem Somos</a>
+								</li>
+								<li class="">
+									<a href="./nossos-premios.html" title="Nossos Prêmios">Nossos Prêmios</a>
+								</li>
+								<li class="">
+									<a href="./ancar-labs.html" title="Ancar Labs">Ancar Labs</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-xs-12 col-sm-4">
+							<ul>
+								<li class="">
+									<a href="./nossos-shoppings.html" title="Nossos Shoppings">Nossos Shoppings</a>
+								</li>
+								<li class="">
+									<a href="./comercializacao.html" title="Comercialização">Comercialização</a>
+								</li>
+								<li class="">
+									<a href="./novidades.html" title="Novidades">Novidades</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-xs-12 col-sm-4">
+							<ul>
+								<li class="">
+									<a href="./carreiras.html" title="Carreiras">Carreiras</a>
+								</li>
+								<li class="">
+									<a href="./responsabilidade-social.html" title="Responsabilidade Social">Responsabilidade Social</a>
+								</li>
+								<li class="">
+									<a href="./fale-conosco.html" title="Fale Conosco">Fale Conosco</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</nav>
+
+</header>
+
+<div id="mainContent"></div>

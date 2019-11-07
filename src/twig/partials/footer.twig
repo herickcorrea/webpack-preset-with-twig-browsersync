@@ -1,0 +1,203 @@
+
+{%
+	set footer = {
+		endereco: 'Av. das Américas, 7777 - Barra da Tijuca,<br> Rio de Janeiro - RJ. CEP: 22793-081',
+		como_chegar: 'https://goo.gl/maps/tc5kKq3Z8UoY3iAW6',
+		redes_sociais:
+		{
+			social1:
+			{
+				icon: 'icon-facebook',
+				titulo: 'Acesse nosso perfil no Facebook',
+				url: '#',
+			},
+			social2:
+			{
+				icon: 'icon-instagram',
+				titulo: 'Acesse nosso perfil no Instagram',
+				url: '#',
+			},
+			social3:
+			{
+				icon: 'icon-twitter',
+				titulo: 'Acesse nosso perfil no Twitter',
+				url: '#',
+			},
+			social4:
+			{
+				icon: 'icon-youtube-play',
+				titulo: 'Acesse nosso perfil no Youtube',
+				url: '#',
+			},
+		},
+		canal_transparencia:
+		{
+			tel: '(21) 3083-1000',
+			url: 'https://canalconfidencial.com.br/ancarivanhoe/',
+		},
+		seletor_nossos_shoppings:
+		{
+			grupo1:
+			{
+				optgroup: 'Rio de Janeiro',
+				options:
+				{
+					option1:'<option value="http://www.boulevardrioshopping.com.br/">Shopping Boulevard RJ</option>',
+					option2:'<option value="http://www.botafogopraiashopping.com.br/">Botafogo Praia Shopping</option>',
+					option3:'<option value="http://www.downtown.com.br/">Downtown</option>',
+					option4:'<option value="http://www.riodesignbarra.com.br/">Rio Design Barra</option>',
+					option5:'<option value="http://www.riodesignleblon.com.br/">Rio Design Leblon</option>',
+					option6:'<option value="http://www.novaamerica.com.br/">Shopping Nova América</option>',
+					option7:'<option value="https://madureirashopping.com.br/">Madureira Shopping</option>',
+					option8:'<option value="http://www.shoppingnovaiguacu.com.br/">,Shopping Nova Iguaçu</option>',
+				},
+			},
+			grupo2:
+			{
+				optgroup: 'São Paulo',
+				options:
+				{
+					option1:'<option value="http://www.centervale.com.br/">CenterVale Shopping</option>',
+					option2:'<option value="http://www.goldensquareshopping.com.br/">Golden Square Shopping</option>',
+					option3:'<option value="http://www.shoppingeldorado.com.br/">Shopping Eldorado</option>',
+					option4:'<option value="https://www.shoppingpatiopaulista.com.br/">Shopping Pátio Paulista</option>',
+					option5:'<option value="https://www.interlagos.com.br/">Shopping Interlagos</option>',
+					option6:'<option value="http://www.shoppingitaquera.com.br/">Shopping Metrô Itaquera</option>',
+					option7:'<option value="http://www.shoppingparquedasbandeiras.com.br/">Shopping Parque das Bandeiras</option>',
+				}
+			},
+			grupo3:
+			{
+				optgroup: 'Rio Grande do Sul',
+				options:
+				{
+					option1:'<option value="http://iguatemiportoalegre.com.br/">Shopping Center Iguatemi Porto Alegre</option>',
+				}
+			},
+			grupo4:
+			{
+				optgroup: 'Brasília',
+				options:
+				{
+					option1:'<option value="http://www.conjuntonacional.com.br/">Shopping Conjunto Nacional</option>',
+				}
+			},
+			grupo5:
+			{
+				optgroup: 'Mato Grosso',
+				options:
+				{
+					option1:'<option value="http://www.pantanalshopping.com.br/">Pantanal Shopping</option>',
+				}
+			},
+			grupo6:
+			{
+				optgroup: 'Rondônia',
+				options:
+				{
+					option1:'<option value="http://www.pvshopping.com.br/">Porto Velho Shopping</option>',
+				}
+			},
+			grupo7:
+			{
+				optgroup: 'Ceará',
+				options:
+				{
+					option1:'<option value="http://www.northshoppingfortaleza.com.br/">North Shopping Fortaleza</option>',
+					option2:'<option value="http://www.northshoppingjoquei.com.br/">North Shopping Jóquei</option>',
+					option3:'<option value="http://www.northshoppingmaracanau.com.br/">North Shopping Maracanaú</option>',
+					option4:'<option value="http://www.shoppingviasul.com.br/">Via Sul Shopping</option>',
+				}
+			},
+			grupo8:
+			{
+				optgroup: 'Rio Grande do Norte',
+				options:
+				{
+					option1:'<option value="http://www.natalshopping.com.br/">Natal Shopping - Natal</option>',
+				}
+			}
+		},
+	}
+%}
+
+<footer id="mainFooter" role="contentinfo">
+	<div class="gradienteTopo">
+		<div class="container">
+			<div class="row">
+				<div class="blocos endereco col-xs-12 col-md-3">
+					<h4>{{ translate.footer.titulo_h4_endereco|t }}</h4>
+					<address>
+						{{ footer.endereco }}
+					</address>
+					<a target="_blank" href="{{ footer.como_chegar }}" title="{{ translate.footer.btn_comochegar_title|t }}" class="maps"><i class="icon-location"></i> {{ translate.footer.btn_comochegar_label|t }}</a>
+				</div>
+				<div class="blocos social col-xs-12 col-md-3">
+					<h4>{{ translate.footer.titulo_h4_nossasredes|t }}</h4>
+					<ul role="list" aria-label="{{ translate.footer.label_lista_social|t }}">
+						
+						{% for social in footer.redes_sociais %}
+
+							<li><a href="{{ social.url }}" title="{{ social.titulo }}" target="_blank"><i class="{{ social.icon }}"></i></a></li>
+
+						{% endfor %}
+						
+					</ul>
+				</div>
+				<div class="blocos contatos col-xs-12 col-md-3">
+					<h4>{{ translate.footer.titulo_h4_transparencia|t }}</h4>
+					<div class="actions">
+						<i class="icon-canal-transparencia"></i>
+						<span>
+							<a href="tel:{{ footer.canal_transparencia.tel }}" title="{{ translate.footer.btn_tel_title|t }}" class="tel">{{ footer.canal_transparencia.tel }}</a>
+							<a href="{{ footer.canal_transparencia.url }}" title="{{ translate.footer.btn_canal_transparencia_title|t }}" class="site" target="_blank">
+								{{ translate.footer.btn_canal_transparencia_label|t }}
+							</a>
+						</span>
+					</div>
+				</div>
+				<div class="blocos shoppings col-xs-12 col-md-3">
+					<h4>{{ translate.footer.titulo_h4_shoppings|t }}</h4>
+					<form id="changeShopping" action="#" target="_blank" class="formularioStyle">
+						<div class="input select">
+							<select id="goToShopping" class="defaultInputStyle">
+								<option>{{ translate.footer.seletor_option_initial|t }}</option>
+
+								{% for grupos in footer.seletor_nossos_shoppings %}
+
+									<optgroup label="{{ grupos.optgroup }}"></optgroup>
+
+									{% for options in grupos.options %}
+
+										{{ options }}
+
+									{% endfor %}
+
+								{% endfor %}
+
+							</select>
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="ancarBar">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<span>{{ translate.footer.copyright|t }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="scrollToTop">
+		<div class="container">
+			<div class="row">
+				<a href="#mainContent" title="{{ translate.footer.btn_topo|t }}" class="scrollTo"><i class="icon-up"></i></a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div id="menuMobileClose"></div>
